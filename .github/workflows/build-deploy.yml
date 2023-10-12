@@ -1,0 +1,40 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - master # Set a branch to deploy
+  # pull_request:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest 
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+            python-version: 3.x
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+
+      - uses: actions/cache@v3
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+      - run: pip install mkdocs-material 
+      - run: mkdocs gh-deploy --force
+      
+    #   - name: Deploy to own server
+    #     uses: easingthemes/ssh-deploy@main
+    #     env:
+    #       ARGS: "-avz --delete"
+    #       SOURCE: "bin/"
+    #       SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+    #       REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+    #       REMOTE_USER: ${{ secrets.REMOTE_USER }}
+    #       REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
+    #       TARGET: "/service/passad.user/bin/"
+    #       SCRIPT_AFTER: "cd /service/passad.user;./run.sh"
