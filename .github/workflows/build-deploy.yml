@@ -23,9 +23,30 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install mkdocs-material 
-      - run: mkdocs gh-deploy --force
-      
-      
+      # - run: mkdocs gh-deploy --force
+
+      - name: Build site
+        run: |
+          mkdocs build
+          mv site/* .
+          echo "www.passad.cc" > CNAME
+
+      # - name: Deploy to GitHub Pages
+      #   run: |
+      #     git config --global user.email "your@email.com"
+      #     git config --global user.name "Your Name"
+      #     git branch -D gh-pages  # Delete the existing gh-pages branch
+      #     git checkout -b gh-pages
+      #     mv dist/* .
+      #     git add .
+      #     git commit -m "Deploy to GitHub Pages"
+      #     git push -f origin gh-pages
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
       
     #   - name: Deploy to own server
     #     uses: easingthemes/ssh-deploy@main
