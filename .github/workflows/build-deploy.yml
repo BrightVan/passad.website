@@ -47,6 +47,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .
+          force_orphan: true
           cname: www.passad.cc
       
     #   - name: Deploy to own server
