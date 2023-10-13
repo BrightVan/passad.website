@@ -2,7 +2,7 @@
 
 <div align="center">
 
-  <img id="mercurius" width="600" alt="mercurius" src="assets/screenshot/top.png">
+  <img id="mercurius" width="600" alt="mercurius" src="assets/screenshot/top-2.png">
 
   <p> passad - 隐私数据管理器 </p>
 
