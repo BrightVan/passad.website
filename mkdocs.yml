@@ -1,0 +1,56 @@
+site_name: passad
+theme:
+  name: material
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to auto mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  logo: assets/logo.png
+  favicon: assets/favicon.ico
+  features:
+    - navigation.tabs
+    - navigation.footer
+    - navigation.top
+    - search.suggest
+    - search.highlight
+
+plugins:
+  - search
+
+extra:
+  generator: false
+  social:
+    # - icon: fontawesome/free/qq
+    #   link: https://fosstodon.org/@squidfunk
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:team@passad.cc
+
+    - icon: fontawesome/brands/github
+      link: https://github.com/BrightVan/passad.website
+
+copyright: Copyright &copy; 2023 - 2023 Passad
+
+
