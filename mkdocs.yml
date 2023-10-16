@@ -43,11 +43,13 @@ plugins:
 extra:
   generator: false
   social:
-    - icon: fontawesome/brands/twitter
-      link: https://fosstodon.org/@squidfunk
+    # - icon: fontawesome/free/qq
+    #   link: https://fosstodon.org/@squidfunk
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:team@passad.cc
 
     - icon: fontawesome/brands/github
-      link: https://fosstodon.org/@squidfunk
+      link: https://github.com/BrightVan/passad.website
 
 copyright: Copyright &copy; 2023 - 2023 Passad
 
